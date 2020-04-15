@@ -18,6 +18,10 @@ public class LUIScreen extends WebScreen
         luiView.addJSFuncWithCallback("getServerInfo", new JSFunctions.GetServerInfoFunc(this));
         luiView.addJSFuncWithCallback("connectToServer", JSFunctions::connectToServer);
         luiView.addJSFuncWithCallback("openLUIGui", JSFunctions::openGui);
+        luiView.addJSFuncWithCallback("openModsGui", JSFunctions::openModsGui);
+        luiView.addJSFuncWithCallback("openOptionsGui", JSFunctions::openOptionsGui);
+        luiView.addJSFuncWithCallback("shutdownMC", JSFunctions::shutdownMC);
+        luiView.addJSFuncWithCallback("openWorldSelectionGui", JSFunctions::openWorldSelectionGui);
         luiView.loadURL(url);
         luiView.setResizeCallback(vec -> new Vec4i(0, 0, vec.x, vec.y));
         luiView.addDOMReadyListener(() -> luiView.evaluteJS("luiScreenInit();"));

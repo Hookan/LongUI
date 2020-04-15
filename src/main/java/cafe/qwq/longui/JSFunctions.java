@@ -6,8 +6,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.ConnectingScreen;
+import net.minecraft.client.gui.screen.OptionsScreen;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.WorldSelectionScreen;
 import net.minecraft.client.multiplayer.ServerData;
+import net.minecraftforge.fml.client.gui.screen.ModListScreen;
 import org.lwjgl.glfw.GLFW;
 
 import java.io.IOException;
@@ -84,6 +87,33 @@ public class JSFunctions
             LUIScreen screen = new LUIScreen(config.name, config.url, config.drawBackground);
             Minecraft.getInstance().displayGuiScreen(screen);
         });
+        return null;
+    }
+
+    public static JsonElement openOptionsGui(JsonElement element)
+    {
+        Minecraft mc = Minecraft.getInstance();
+        mc.enqueue(() -> mc.displayGuiScreen(new OptionsScreen(mc.currentScreen, mc.gameSettings)));
+        return null;
+    }
+
+    public static JsonElement openModsGui(JsonElement element)
+    {
+        Minecraft mc = Minecraft.getInstance();
+        mc.enqueue(() -> mc.displayGuiScreen(new ModListScreen(mc.currentScreen)));
+        return null;
+    }
+
+    public static JsonElement openWorldSelectionGui(JsonElement element)
+    {
+        Minecraft mc = Minecraft.getInstance();
+        mc.enqueue(() -> mc.displayGuiScreen(new WorldSelectionScreen(mc.currentScreen)));
+        return null;
+    }
+
+    public static JsonElement shutdownMC(JsonElement element)
+    {
+        Minecraft.getInstance().shutdown();
         return null;
     }
 }
