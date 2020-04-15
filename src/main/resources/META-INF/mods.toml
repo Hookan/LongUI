@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+
+[[mods]]
+modId="longui"
+version="${file.jarVersion}"
+displayName="LongUI"
+logoFile="longui_logo.png"
+credits="Bogos"
+authors="hookan"
+description='''
+一个界面mod，类似IntUI
+'''
+
+[[dependencies.longui]]
+    modId="forge"
+    mandatory=true
+    versionRange="[31,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.longui]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="CLIENT"
+
+
+[[dependencies.longui]]
+    modId="webcraft"
+    mandatory=true
+    versionRange="[0.4.1,)"
+    ordering="NONE"
+    side="CLIENT"
