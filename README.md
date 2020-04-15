@@ -95,6 +95,17 @@ LongUI 为方便 GUI 的编写以及与 MC 的交互，提供了以下几个 JS 
 
 * `openWorldSelectionGui` 打开单人模式
 
+* `getPlayerInfo` 获取玩家信息
+
+  * 使用案例
+
+    ```javascript
+    var info = getPlayerInfo();
+    info.name//玩家名称
+    info.uuid//玩家的uuid
+    info.token//玩家的token
+    ```
+
 * 以后还会添加更多的方法...
 
 

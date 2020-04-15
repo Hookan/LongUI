@@ -3,13 +3,12 @@ package cafe.qwq.longui;
 import cafe.qwq.webcraft.api.View;
 import cafe.qwq.webcraft.api.WebScreen;
 import cafe.qwq.webcraft.api.math.Vec4i;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 public class LUIScreen extends WebScreen
 {
     final View luiView;
-
+    
     public LUIScreen(String name, String url, boolean drawBackground)
     {
         super(new StringTextComponent(name));
@@ -22,6 +21,7 @@ public class LUIScreen extends WebScreen
         luiView.addJSFuncWithCallback("openOptionsGui", JSFunctions::openOptionsGui);
         luiView.addJSFuncWithCallback("shutdownMC", JSFunctions::shutdownMC);
         luiView.addJSFuncWithCallback("openWorldSelectionGui", JSFunctions::openWorldSelectionGui);
+        luiView.addJSFuncWithCallback("getPlayerInfo", JSFunctions::getPlayerInfo);
         luiView.loadURL(url);
         luiView.setResizeCallback(vec -> new Vec4i(0, 0, vec.x, vec.y));
         luiView.addDOMReadyListener(() -> luiView.evaluteJS("luiScreenInit();"));
@@ -31,7 +31,7 @@ public class LUIScreen extends WebScreen
             addPreRenderer((x, y, p) -> renderBackground());
         }
     }
-
+    
     public void onClose()
     {
         luiView.evaluteJS("luiScreenClose();");

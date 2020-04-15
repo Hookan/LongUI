@@ -91,12 +91,12 @@ minecraft {
 }
 
 repositories {
-    maven { url 'https://maven.qwq.cafe/' }
+    maven { url 'https://ci.qwq.cafe/maven/' }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'
-    implementation 'cafe.qwq:webcraft:0.4.1:dev'
+    implementation 'cafe.qwq:webcraft:0.4.2:dev'
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
