@@ -143,4 +143,4 @@ LongUI 为方便 GUI 的编写以及与 MC 的交互，提供了以下几个 JS 
 
 
 
-注意，请在你的 css 的 `font-family` 中多设置几个字体，亦或者是直接将字体放进你的设置文件夹中（然后在 css 中用 `file:///mods/longui/<gui名称>/xxx.ttf` 来使用你的字体）。在 LongUI 中（或者说 WebCraft 中），`file:///` 链接为**相对于 Minecraft 运行路径**的路径。不同启动器在不同模式下运行路径不同，比如：HMCL和**BakaXL（特别提示）**默认运行路径为 `.minecraft` ，HMCL开启版本隔离后，运行路径为 `.minecraft/versions/<版本号>`
+注意，请在你的 css 的 `font-family` 中多设置几个字体，亦或者是直接将字体放进你的设置文件夹中（然后在 css 中用 `file:///mods/longui/<gui名称>/xxx.ttf` 来使用你的字体）。在 LongUI 中（或者说 WebCraft 中），`file:///` 链接为**相对于 Minecraft 运行路径**的路径。不同启动器在不同模式下运行路径不同，比如：HMCL和 **BakaXL（特别提示）** 默认运行路径为 `.minecraft` ，HMCL开启版本隔离后，运行路径为 `.minecraft/versions/<版本号>`
