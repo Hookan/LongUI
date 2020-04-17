@@ -9,9 +9,9 @@ import java.io.FileReader;
 public class GuiConfig
 {
     public String name;
-    public String guiPath;
     public String url;
     public boolean drawBackground = true;
+    public boolean shouldCloseOnEsc = true;
 
     private static Gson gson = new Gson();
 

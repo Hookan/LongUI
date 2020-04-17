@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-def mod_version = "0.1"
+def mod_version = "0.2"
 
 if(System.getenv("BUILD_NUMBER") != null)
 	mod_version += "." + System.getenv("BUILD_NUMBER");
@@ -21,6 +21,8 @@ if(System.getenv("BUILD_NUMBER") != null)
 version = mod_version
 group = 'qwq.cafe'
 archivesBaseName = 'longui'
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 

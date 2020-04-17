@@ -84,7 +84,7 @@ public class JSFunctions
     {
         GuiConfig config = GuiConfig.loadGui(element);
         Minecraft.getInstance().enqueue(() -> {
-            LUIScreen screen = new LUIScreen(config.name, config.url, config.drawBackground);
+            LUIScreen screen = new LUIScreen(config);
             Minecraft.getInstance().displayGuiScreen(screen);
         });
         return null;
@@ -117,6 +117,12 @@ public class JSFunctions
         return null;
     }
     
+    public static JsonElement closeGui(JsonElement element)
+    {
+        Minecraft.getInstance().enqueue(() -> Minecraft.getInstance().displayGuiScreen(null));
+        return null;
+    }
+    
     static class PlayerInfo
     {
         String name;
@@ -136,5 +142,36 @@ public class JSFunctions
         info.token = mc.getSession().getToken();
         String json = gson.toJson(info);
         return jsonParser.parse(json);
+    }
+    
+    public static JsonElement sendPacket(JsonElement element)
+    {
+        NetworkHandler.sendPacket(element.toString());
+        return null;
+    }
+    
+    public static JsonElement sendChatMessage(JsonElement element)
+    {
+        Minecraft.getInstance().enqueue(() -> Minecraft.getInstance().player.sendChatMessage(element.getAsString()));
+        return null;
+    }
+    
+    public static class AddPacketReceiverFunc implements View.IJSFuncCallback
+    {
+        private final LUIScreen screen;
+        
+        public AddPacketReceiverFunc(LUIScreen screen)
+        {
+            this.screen = screen;
+        }
+        
+        public JsonElement callback(JsonElement element)
+        {
+            JsonObject obj = element.getAsJsonObject();
+            String plugin = obj.get("plugin").getAsString();
+            String callback = obj.get("callback").getAsString();
+            screen.packetReceiverMap.put(plugin, callback);
+            return null;
+        }
     }
 }
