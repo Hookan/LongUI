@@ -37,6 +37,7 @@ public class LUIScreen extends WebScreen
         luiView.addJSFuncWithCallback("openWorldSelectionGui", JSFunctions::openWorldSelectionGui);
         luiView.addJSFuncWithCallback("getPlayerInfo", JSFunctions::getPlayerInfo);
         luiView.addJSFuncWithCallback("closeGui", JSFunctions::closeGui);
+        luiView.addJSFuncWithCallback("isInGame",JSFunctions::isInGame);
         if (Minecraft.getInstance().world != null)
         {
             luiView.addJSFuncWithCallback("sendPacket", JSFunctions::sendPacket);

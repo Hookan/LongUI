@@ -174,4 +174,9 @@ public class JSFunctions
             return null;
         }
     }
+    
+    public static JsonElement isInGame(JsonElement element)
+    {
+        return gson.toJsonTree(Minecraft.getInstance().world != null);
+    }
 }
